@@ -1,0 +1,507 @@
+databaseChangeLog:
+  - changeSet:
+      id: initial seed databaseChangeLog
+      author: James Davis
+      changes:
+
+        # Permissions for permission management
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 1
+              - column:
+                  name: permission_code
+                  value: ADD_PERMISSION 
+              - column:
+                  name: description
+                  value: Add a permission to the system
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 2
+              - column:
+                  name: permission_code
+                  value: UPDATE_PERMISSION 
+              - column:
+                  name: description
+                  value: Updates a permission in the system
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 3
+              - column:
+                  name: permission_code
+                  value: DELETE_PERMISSION 
+              - column:
+                  name: description
+                  value: Removes a permission from the system
+
+        # Permissions for role management
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 4
+              - column:
+                  name: permission_code
+                  value: ADD_ROLE
+              - column:
+                  name: description
+                  value: Adds a role to the system
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 5
+              - column:
+                  name: permission_code
+                  value: UPDATE_ROLE
+              - column:
+                  name: description
+                  value: Update a role in the system
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 6
+              - column:
+                  name: permission_code
+                  value: DELETE_ROLE
+              - column:
+                  name: description
+                  value: Removes a role from the system
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 7
+              - column:
+                  name: permission_code
+                  value: ADD_ROLE_PERMISSION
+              - column:
+                  name: description
+                  value: Adds a permission to a role in the system
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 8
+              - column:
+                  name: permission_code
+                  value: REMOVE_ROLE_PERMISSION
+              - column:
+                  name: description
+                  value: Removes a permission from a role in the system
+
+        # Permissions for team management
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 9
+              - column:
+                  name: permission_code
+                  value: ADD_TEAM
+              - column:
+                  name: description
+                  value: Adds a team to the system
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 10
+              - column:
+                  name: permission_code
+                  value: UPDATE_TEAM
+              - column:
+                  name: description
+                  value: Updates a team in the system
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 11
+              - column:
+                  name: permission_code
+                  value: DELETE_TEAM
+              - column:
+                  name: description
+                  value: Deletes a team from the system
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 12
+              - column:
+                  name: permission_code
+                  value: ADD_TEAM_MEMBER
+              - column:
+                  name: description
+                  value: Add a member to a team in the system
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 13
+              - column:
+                  name: permission_code
+                  value: REMOVE_TEAM_MEMBER
+              - column:
+                  name: description
+                  value: Remove a member from a team in the system
+
+        # Permissions for user management
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 14
+              - column:
+                  name: permission_code
+                  value: ADD_USER
+              - column:
+                  name: description
+                  value: Adds a user to the system
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 15
+              - column:
+                  name: permission_code
+                  value: UPDATE_USER
+              - column:
+                  name: description
+                  value: Updates a user in the system
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 16
+              - column:
+                  name: permission_code
+                  value: REMOVE_USER
+              - column:
+                  name: description
+                  value: Removes a user from the system
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 17
+              - column:
+                  name: permission_code
+                  value: RESET_PASSWORD
+              - column:
+                  name: description
+                  value: Resets a users password
+
+        # Permissions for merge request management
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 18
+              - column:
+                  name: permission_code
+                  value: ADD_MERGE_REQUEST
+              - column:
+                  name: description
+                  value: Adds a merge request to the system
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 19
+              - column:
+                  name: permission_code
+                  value: UPDATE_MERGE_REQUEST
+              - column:
+                  name: description
+                  value: Updates a merge request in the system
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: permission_id
+                  valueNumeric: 20
+              - column:
+                  name: permission_code
+                  value: DELETE_MERGE_REQUEST
+              - column:
+                  name: description
+                  value: Deletes a merge request from the system
+
+        # Roles 
+        - insert:
+            tableName: role
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 1
+              - column:
+                  name: role_code
+                  value: SUPER_ADMIN
+              - column:
+                  name: description
+                  value: High level admin to manage all aspects of system
+        - insert:
+            tableName: role
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 2
+              - column:
+                  name: role_code
+                  value: USER_ADMIN
+              - column:
+                  name: description
+                  value: Admin to manage users
+        - insert:
+            tableName: role
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 3
+              - column:
+                  name: role_code
+                  value: MERGE_REQUEST_ADMIN
+              - column:
+                  name: description
+                  value: Admin to manage any merge request
+        - insert:
+            tableName: role
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 4
+              - column:
+                  name: role_code
+                  value: TEAM_ADMIN
+              - column:
+                  name: description
+                  value: Admin to manage team composition
+        - insert:
+            tableName: role
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 5
+              - column:
+                  name: role_code
+                  value: USER
+              - column:
+                  name: description
+                  value: General user of the system
+
+        # Adding permissions to SUPER_ADMIN
+        # Manage Permissions
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 1
+              - column:
+                  name: permission_id
+                  valueNumeric: 1
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 1
+              - column:
+                  name: permission_id
+                  valueNumeric: 2
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 1
+              - column:
+                  name: permission_id
+                  valueNumeric: 3
+        # Manage roles
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 1
+              - column:
+                  name: permission_id
+                  valueNumeric: 4
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 1
+              - column:
+                  name: permission_id
+                  valueNumeric: 5
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 1
+              - column:
+                  name: permission_id
+                  valueNumeric: 6
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 1
+              - column:
+                  name: permission_id
+                  valueNumeric: 7
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 1
+              - column:
+                  name: permission_id
+                  valueNumeric: 8
+        
+        # User Admin
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 2
+              - column:
+                  name: permission_id
+                  valueNumeric: 14
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 2
+              - column:
+                  name: permission_id
+                  valueNumeric: 15
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 2
+              - column:
+                  name: permission_id
+                  valueNumeric: 16
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 2
+              - column:
+                  name: permission_id
+                  valueNumeric: 17
+
+        # Team Admin
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 4
+              - column:
+                  name: permission_id
+                  valueNumeric: 9
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 4
+              - column:
+                  name: permission_id
+                  valueNumeric: 10
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 4
+              - column:
+                  name: permission_id
+                  valueNumeric: 11
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 4
+              - column:
+                  name: permission_id
+                  valueNumeric: 12
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 4
+              - column:
+                  name: permission_id
+                  valueNumeric: 13
+
+        # Merge Request Admin
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 3
+              - column:
+                  name: permission_id
+                  valueNumeric: 18
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 3
+              - column:
+                  name: permission_id
+                  valueNumeric: 19
+        - insert:
+            tableName: role_permission
+            columns:
+              - column:
+                  name: role_id
+                  valueNumeric: 3
+              - column:
+                  name: permission_id
+                  valueNumeric: 20

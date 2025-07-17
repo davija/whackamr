@@ -1,0 +1,62 @@
+{
+  "name": "whack-a-mr",
+  "version": "0.0.0",
+  "packageManager": "yarn@4.9.2",
+  "scripts": {
+    "build": "ng build",
+    "format": "prettier . --write",
+    "lint": "ng lint",
+    "ng": "ng",
+    "start": "ng serve",
+    "test": "ng test --watch=false --code-coverage",
+    "watch": "ng build --watch --configuration development"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/cdk": "20.1.0",
+    "@angular/common": "^20.1.0",
+    "@angular/compiler": "^20.1.0",
+    "@angular/core": "^20.1.0",
+    "@angular/forms": "^20.1.0",
+    "@angular/material": "20.1.0",
+    "@angular/platform-browser": "^20.1.0",
+    "@angular/platform-browser-dynamic": "^20.1.0",
+    "@angular/router": "^20.1.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular-eslint/builder": "20.1.1",
+    "@angular/build": "^20.1.0",
+    "@angular/cli": "^20.1.0",
+    "@angular/compiler-cli": "^20.1.0",
+    "@eslint/js": "^9.29.0",
+    "@schuchard/prettier": "5.1.0",
+    "@types/jasmine": "~5.1.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "angular-eslint": "20.1.1",
+    "eslint": "^9.29.0",
+    "husky": "^9.1.7",
+    "jasmine-core": "~5.6.0",
+    "jsdom": "^22.0.0",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "8.34.1",
+    "vite": "^6.0.0",
+    "vite-tsconfig-paths": "^4.2.0",
+    "vitest": "^3.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,scss,less,md,ts,html,component.html}": [
+      "prettier --write"
+    ]
+  }
+}

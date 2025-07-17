@@ -1,0 +1,51 @@
+.app-header {
+  width: 100%;
+  height: 64px;
+  background-color: darkslategray;
+  display: flex;
+  flex-direction: row;
+}
+
+.logo-container {
+  margin: 8px;
+  padding: 0px;
+  width: 48px;
+  height: 48px;
+  background-color: lightgray;
+  border-radius: 24px;
+  display: flex;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin: 0px;
+  padding: 0px;
+  padding-top: 3px;
+  padding-left: 7px;
+}
+
+.menu-container {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  margin: 8px;
+  margin-top: 12px;
+  padding: 0px;
+}
+
+.menu {
+  font-weight: bold;
+}
+
+.menu.mat-mdc-button {
+  color: white;
+}
+
+.user-info-container {
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 256px;
+  padding: 8px;
+}

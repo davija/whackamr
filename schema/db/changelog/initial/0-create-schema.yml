@@ -1,0 +1,326 @@
+databaseChangeLog:
+  - changeSet:
+      id: create tables
+      author: James Davis
+      changes:
+      - createTable:
+          tableName: user
+          columns:
+            - column:
+                name: user_id
+                type: INT
+                autoIncrement: true
+                constraints:
+                  nullable: false
+                  primaryKey: true
+            - column:
+                name: username
+                type: VARCHAR(25)
+                constraints:
+                  nullable: false
+            - column:
+                name: firstname
+                type: VARCHAR(35)
+                constraints:
+                  nullable: false
+            - column:
+                name: lastname
+                type: VARCHAR(35)
+                constraints:
+                  nullable: false
+            - column:
+                name: emailAddress
+                type: VARCHAR(255)
+                constraints:
+                  nullable: false
+            - column:
+                name: active
+                type: BIT(1)
+                constraints:
+                  nullable: false
+      - addDefaultValue:
+          tableName: user
+          columnName: active
+          columnDataType: BIT(1)
+          defaultValueComputed: b'1'
+      - addUniqueConstraint:
+          constraintName: ux_user_username
+          tableName: user
+          columnNames: username
+
+      - createTable:
+          tableName: user_password
+          columns:
+            - column:
+                name: user_password_id
+                type: INT
+                autoIncrement: true
+                constraints:
+                  nullable: false
+                  primaryKey: true
+            - column:
+                name: user_id
+                type: INT
+                constraints:
+                  nullable: false
+            - column:
+                name: passwd
+                type: VARCHAR(250)
+                constraints:
+                  nullable: false
+      - addUniqueConstraint:
+          constraintName: ux_user_password_user
+          tableName: user_password
+          columnNames: user_id
+      - addForeignKeyConstraint:
+          constraintName: fk_user_password_user
+          baseTableName: user_password
+          baseColumnNames: user_id
+          referencedTableName: user
+          referencedColumnNames: user_id
+
+      - createTable:
+          tableName: team
+          columns:
+            - column:
+                name: team_id
+                type: INT
+                autoIncrement: true
+                constraints:
+                  nullable: false
+                  primaryKey: true
+            - column:
+                name: team_name
+                type: VARCHAR(25)
+                constraints:
+                  nullable: false
+      - addUniqueConstraint:
+          constraintName: ux_team_team_name
+          tableName: team
+          columnNames: team_name
+
+      - createTable:
+          tableName: team_user
+          columns:
+            - column:
+                name: team_id
+                type: INT
+                constraints:
+                  nullable: false
+            - column:
+                name: user_id
+                type: INT
+                constraints:
+                  nullable: false
+      - addPrimaryKey:
+          constraintName: pk_team_user
+          tableName: team_user
+          columnNames: team_id, user_id
+          validate: true
+      - addForeignKeyConstraint:
+          constraintName: fk_team_user_user
+          baseTableName: team_user
+          baseColumnNames: user_id
+          referencedTableName: user
+          referencedColumnNames: user_id
+      - addForeignKeyConstraint:
+          constraintName: fk_team_user_team
+          baseTableName: team_user
+          baseColumnNames: team_id
+          referencedTableName: team
+          referencedColumnNames: team_id
+
+      - createTable:
+          tableName: role
+          columns:
+            - column:
+                name: role_id
+                type: INT
+                autoIncrement: true
+                constraints:
+                  nullable: false
+                  primaryKey: true
+            - column:
+                name: role_code
+                type: VARCHAR(25)
+                constraints:
+                  nullable: false
+            - column:
+                name: description
+                type: VARCHAR(255)
+                constraints:
+                  nullable: false
+            - column:
+                name: active
+                type: BIT(1)
+                constraints:
+                  nullable: false
+      - addDefaultValue:
+          tableName: role
+          columnName: active
+          columnDataType: BIT(1)
+          defaultValueComputed: b'1'
+      - addUniqueConstraint:
+          constraintName: ux_role_role_code
+          tableName: role
+          columnNames: role_code
+                        
+      - createTable:
+          tableName: permission
+          columns:
+            - column:
+                name: permission_id
+                type: INT
+                autoIncrement: true
+                constraints:
+                  nullable: false
+                  primaryKey: true
+            - column:
+                name: permission_code
+                type: VARCHAR(25)
+                constraints:
+                  nullable: false
+            - column:
+                name: description
+                type: VARCHAR(255)
+                constraints:
+                  nullable: false
+            - column:
+                name: active
+                type: BIT(1)
+                constraints:
+                  nullable: false
+      - addDefaultValue:
+          tableName: permission
+          columnName: active
+          columnDataType: BIT(1)
+          defaultValueComputed: b'1'
+      - addUniqueConstraint:
+          constraintName: ux_permission_permission_code
+          tableName: permission
+          columnNames: permission_code
+
+      - createTable:
+          tableName: role_permission
+          columns:
+            - column:
+                name: role_id
+                type: INT
+                constraints:
+                  nullable: false
+            - column:
+                name: permission_id
+                type: INT
+                constraints:
+                  nullable: false
+      - addPrimaryKey:
+          constraintName: pk_role_permission
+          tableName: role_permission
+          columnNames: role_id, permission_id
+          validate: true
+      - addForeignKeyConstraint:
+          constraintName: fk_role_permission_role
+          baseTableName: role_permission
+          baseColumnNames: role_id
+          referencedTableName: role
+          referencedColumnNames: role_id
+      - addForeignKeyConstraint:
+          constraintName: fk_role_permission_permission
+          baseTableName: role_permission
+          baseColumnNames: permission_id
+          referencedTableName: permission
+          referencedColumnNames: permission_id
+
+      - createTable:
+          tableName: user_role
+          columns:
+            - column:
+                name: user_id
+                type: INT
+                constraints:
+                  nullable: false
+            - column:
+                name: role_id
+                type: INT
+                constraints:
+                  nullable: false
+      - addPrimaryKey:
+          constraintName: pk_user_role
+          tableName: user_role
+          columnNames: user_id, role_id
+          validate: true
+      - addForeignKeyConstraint:
+          constraintName: fk_user_role_user
+          baseTableName: user_role
+          baseColumnNames: user_id
+          referencedTableName: user
+          referencedColumnNames: user_id
+      - addForeignKeyConstraint:
+          constraintName: fk_user_role_role
+          baseTableName: user_role
+          baseColumnNames: role_id
+          referencedTableName: role
+          referencedColumnNames: role_id
+        
+      - createTable:
+          tableName: merge_request
+          columns:
+            - column:
+                name: merge_request_id
+                type: INT
+                autoIncrement: true
+                constraints:
+                  nullable: false
+                  primaryKey: true
+            - column:
+                name: link
+                type: VARCHAR(500)
+                constraints:
+                  nullable: false
+            - column:
+                name: owner_id
+                type: INT
+                constraints:
+                  nullable: false
+            - column:
+                name: active
+                type: BIT(1)
+                constraints:
+                  nullable: false
+      - addDefaultValue:
+          tableName: merge_request
+          columnName: active
+          columnDataType: BIT(1)
+          defaultValueComputed: b'1'
+
+      - createTable:
+          tableName: related_merge_request
+          columns:
+            - column:
+                name: merge_request_id
+                type: INT
+                constraints:
+                  nullable: false
+            - column:
+                name: related_merge_request_id
+                type: INT
+                constraints:
+                  nullable: false
+      - addPrimaryKey:
+          constraintName: pk_related_merge_request
+          tableName: related_merge_request
+          columnNames: merge_request_id, related_merge_request_id
+          validate: true
+      - addForeignKeyConstraint:
+          constraintName: fk_related_merge_request_request
+          baseTableName: related_merge_request
+          baseColumnNames: merge_request_id
+          referencedTableName: merge_request
+          referencedColumnNames: merge_request_id
+      - addForeignKeyConstraint:
+          constraintName: fk_related_merge_request_related
+          baseTableName: related_merge_request
+          baseColumnNames: related_merge_request_id
+          referencedTableName: merge_request
+          referencedColumnNames: merge_request_id
+              

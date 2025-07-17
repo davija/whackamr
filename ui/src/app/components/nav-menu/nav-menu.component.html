@@ -1,0 +1,28 @@
+<!-- This version opens the menu on hover - needs work, commenting out for now.
+ <button
+  matButton
+  #menuTrigger="matMenuTrigger"
+  (mouseenter)="openMenu(menuTrigger, 250)"
+  (mouseleave)="signalCloseMenu(1000)"
+  [matMenuTriggerFor]="menu"
+  class="menu"
+>
+  {{ text }}
+</button>
+
+<mat-menu #menu="matMenu" [hasBackdrop]="false" [overlapTrigger]="false">
+  @for (link of links; track link) {
+    <a mat-menu-item href="${link.url}" (mouseenter)="signalMenuStayOpen(250)" (mouseleave)="signalCloseMenu(250)">{{
+      link.text
+    }}</a>
+  }
+</mat-menu>
+-->
+<button matButton class="menu"  [matMenuTriggerFor]="menu"
+>{{ text }}</button>
+
+<mat-menu #menu="matMenu">
+  @for (link of links; track link) {
+    <a mat-menu-item href="${link.url}">{{ link.text }}</a>
+  }
+</mat-menu>

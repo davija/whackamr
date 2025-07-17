@@ -1,0 +1,84 @@
+<section class="app-header">
+  <div class="logo-container">
+    <img src="wam.png" class="logo" alt="logo" />
+  </div>
+  <nav class="menu-container">
+    <app-nav-menu name="mergeRequestMenu" text="Merge Requests" [links]="mergeRequestLinks"></app-nav-menu>
+    <app-nav-menu name="adminMenu" text="Admin" [links]="adminLinks"></app-nav-menu>
+
+    <!-- <button
+      matButton
+      #menuTrigger1="matMenuTrigger"
+      (mouseenter)="openMenu(menuTrigger1)"
+      (mouseleave)="closeMenu(menuTrigger1)"
+      [matMenuTriggerFor]="mergeRequestMenu"
+      class="menu"
+    >
+      Merge Requests
+    </button>
+    <mat-menu #mergeRequestMenu="matMenu">
+      <button mat-menu-item>View current merge requests</button>
+      <button mat-menu-item>View my merge requests</button>
+      <button mat-menu-item>Create new merge request</button>
+    </mat-menu> -->
+
+    <!-- <button
+      matButton
+      #menuTrigger2="matMenuTrigger"
+      (mouseenter)="openMenu(menuTrigger2)"
+      (mouseleave)="closeMenu(menuTrigger2)"
+      [matMenuTriggerFor]="teamAdminMenu"
+      class="menu"
+    >
+      Teams
+    </button>
+    <mat-menu #teamAdminMenu="matMenu">
+      <button mat-menu-item>a</button>
+    </mat-menu>
+
+    <button
+      matButton
+      #menuTrigger3="matMenuTrigger"
+      (mouseenter)="openMenu(menuTrigger3)"
+      (mouseleave)="closeMenu(menuTrigger3)"
+      [matMenuTriggerFor]="userAdminMenu"
+      class="menu"
+    >
+      Users
+    </button>
+    <mat-menu #userAdminMenu="matMenu">
+      <button mat-menu-item>b</button>
+    </mat-menu>
+
+    <button
+      matButton
+      #menuTrigger4="matMenuTrigger"
+      (mouseenter)="openMenu(menuTrigger4)"
+      (mouseleave)="closeMenu(menuTrigger4)"
+      [matMenuTriggerFor]="roleAdminMenu"
+      class="menu"
+    >
+      Roles
+    </button>
+    <mat-menu #roleAdminMenu="matMenu">
+      <button mat-menu-item>d</button>
+    </mat-menu>
+
+    <button
+      matButton
+      #menuTrigger5="matMenuTrigger"
+      (mouseover)="openMenu(menuTrigger5)"
+      (mouseleave)="closeMenu(menuTrigger5)"
+      [matMenuTriggerFor]="permissionAdminMenu"
+      class="menu"
+    >
+      Permissions
+    </button>
+    <mat-menu #permissionAdminMenu="matMenu">
+      <button mat-menu-item>e</button>
+    </mat-menu> -->
+  </nav>
+  <div class="user-info-container">
+    <a matButton="tonal" href="/login">Log In</a>
+  </div>
+</section>
