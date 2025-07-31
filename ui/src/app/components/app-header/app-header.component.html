@@ -4,7 +4,9 @@
   </div>
   <nav class="menu-container">
     <app-nav-menu name="mergeRequestMenu" text="Merge Requests" [links]="mergeRequestLinks"></app-nav-menu>
-    <app-nav-menu name="adminMenu" text="Admin" [links]="adminLinks"></app-nav-menu>
+    @if (authStore.hasPermission('ADD_USER')) {
+      <app-nav-menu name="adminMenu" text="Admin" [links]="adminLinks"></app-nav-menu>
+    }
 
     <!-- <button
       matButton
@@ -79,6 +81,8 @@
     </mat-menu> -->
   </nav>
   <div class="user-info-container">
-    <a matButton="tonal" href="/login">Log In</a>
+    @if (authStore.isAuthenticated()) {
+      <button matButton="tonal" (click)="authService.logout()">Log Out</button>
+    }
   </div>
 </section>

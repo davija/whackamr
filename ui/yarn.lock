@@ -81,7 +81,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-eslint/builder@npm:20.1.1":
+"@angular-eslint/builder@npm:20.1.1, @angular-eslint/builder@npm:^20.1.1":
   version: 20.1.1
   resolution: "@angular-eslint/builder@npm:20.1.1"
   dependencies:
@@ -101,7 +101,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-eslint/eslint-plugin-template@npm:20.1.1":
+"@angular-eslint/eslint-plugin-template@npm:20.1.1, @angular-eslint/eslint-plugin-template@npm:^20.1.1":
   version: 20.1.1
   resolution: "@angular-eslint/eslint-plugin-template@npm:20.1.1"
   dependencies:
@@ -149,7 +149,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-eslint/template-parser@npm:20.1.1":
+"@angular-eslint/template-parser@npm:20.1.1, @angular-eslint/template-parser@npm:^20.1.1":
   version: 20.1.1
   resolution: "@angular-eslint/template-parser@npm:20.1.1"
   dependencies:
@@ -432,6 +432,17 @@ __metadata:
     "@angular/platform-browser": 20.1.0
     rxjs: ^6.5.3 || ^7.4.0
   checksum: 10c0/3beadc6de298a4cd8c46218e43ec7b7e2ac63948be81fe0bf7199efe5e8e5e7c717469461d7116b2b0ef674c54d85c7d645d36a1661b1a6358f3d6562753f559
+  languageName: node
+  linkType: hard
+
+"@auth0/angular-jwt@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "@auth0/angular-jwt@npm:5.2.0"
+  dependencies:
+    tslib: "npm:^2.0.0"
+  peerDependencies:
+    "@angular/common": ">=14.0.0"
+  checksum: 10c0/6575fb7aea746d95c2ec45a97a70386d3019fc125fbe72787aac7943c0db2fad080a9dac5ab7119b8315e6b192e2ef2fa8d0df0a425e9f2fa7ce9081947cc031
   languageName: node
   linkType: hard
 
@@ -1728,6 +1739,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ngrx/signals@npm:^20.0.0-rc.0":
+  version: 20.0.0-rc.0
+  resolution: "@ngrx/signals@npm:20.0.0-rc.0"
+  dependencies:
+    tslib: "npm:^2.3.0"
+  peerDependencies:
+    "@angular/core": ^20.0.0
+    rxjs: ^6.5.3 || ^7.4.0
+  peerDependenciesMeta:
+    rxjs:
+      optional: true
+  checksum: 10c0/bb4c774fce01acdeb41ad7a1146777d0a4651a5c3e2339fd014b891a58c361b76c6663b19566ace5b855c2afbdc24131e75d3794c54394ce83e7502f82c279a9
+  languageName: node
+  linkType: hard
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -2406,6 +2432,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/chokidar@npm:^2.1.7":
+  version: 2.1.7
+  resolution: "@types/chokidar@npm:2.1.7"
+  dependencies:
+    chokidar: "npm:*"
+  checksum: 10c0/e296861b45a90da59a871cc09020e1a8b1111b4a954a2f104ea0a0be31f5b565a35710e9d54670288ca9bdf0c7e71d7d070aaf212db03ee14c1bda93db2f1086
+  languageName: node
+  linkType: hard
+
 "@types/deep-eql@npm:*":
   version: 4.0.2
   resolution: "@types/deep-eql@npm:4.0.2"
@@ -2833,6 +2868,35 @@ __metadata:
   bin:
     acorn: bin/acorn
   checksum: 10c0/dec73ff59b7d6628a01eebaece7f2bdb8bb62b9b5926dcad0f8931f2b8b79c2be21f6c68ac095592adb5adb15831a3635d9343e6a91d028bbe85d564875ec3ec
+  languageName: node
+  linkType: hard
+
+"ag-charts-types@npm:12.0.2":
+  version: 12.0.2
+  resolution: "ag-charts-types@npm:12.0.2"
+  checksum: 10c0/8d51c28837cbbd16d6d56203e7468d8e32290c6b24d7103ef97ca066fa62948a81f5e68a0e3c896683cb69b0ddc4640e7c50377f948fda5cecb099218fcd7693
+  languageName: node
+  linkType: hard
+
+"ag-grid-angular@npm:^34.0.2":
+  version: 34.0.2
+  resolution: "ag-grid-angular@npm:34.0.2"
+  dependencies:
+    ag-grid-community: "npm:34.0.2"
+    tslib: "npm:^2.3.0"
+  peerDependencies:
+    "@angular/common": ">= 17.0.0"
+    "@angular/core": ">= 17.0.0"
+  checksum: 10c0/376d87b8233059cd212aad4420d00f2ca241bf593ade7a4f74fd76f219926d5a338fb67800e6b1f9d25da3b9a2c9d3de3d16f1e8964b0731386a6241c9a9f2e8
+  languageName: node
+  linkType: hard
+
+"ag-grid-community@npm:34.0.2, ag-grid-community@npm:^34.0.2":
+  version: 34.0.2
+  resolution: "ag-grid-community@npm:34.0.2"
+  dependencies:
+    ag-charts-types: "npm:12.0.2"
+  checksum: 10c0/6763f29f9900458ae6afb4af1cba2cd551bfd1a301b75ffca147d870f85a806b1427810e05970e581591c0dc834ce3621a1aea59af652a444e7572d310c5c0e2
   languageName: node
   linkType: hard
 
@@ -3265,7 +3329,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:^4.0.0":
+"chokidar@npm:*, chokidar@npm:^4.0.0, chokidar@npm:^4.0.3":
   version: 4.0.3
   resolution: "chokidar@npm:4.0.3"
   dependencies:
@@ -7607,7 +7671,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.1.0, tslib@npm:^2.3.0":
+"tslib@npm:^2.0.0, tslib@npm:^2.1.0, tslib@npm:^2.3.0":
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10c0/9c4759110a19c53f992d9aae23aac5ced636e99887b51b9e61def52611732872ff7668757d4e4c61f19691e36f4da981cd9485e869b4a7408d689f6bf1f14e62
@@ -8109,7 +8173,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "whack-a-mr@workspace:."
   dependencies:
-    "@angular-eslint/builder": "npm:20.1.1"
+    "@angular-eslint/builder": "npm:^20.1.1"
+    "@angular-eslint/eslint-plugin-template": "npm:^20.1.1"
+    "@angular-eslint/template-parser": "npm:^20.1.1"
     "@angular/build": "npm:^20.1.0"
     "@angular/cdk": "npm:20.1.0"
     "@angular/cli": "npm:^20.1.0"
@@ -8122,11 +8188,19 @@ __metadata:
     "@angular/platform-browser": "npm:^20.1.0"
     "@angular/platform-browser-dynamic": "npm:^20.1.0"
     "@angular/router": "npm:^20.1.0"
+    "@auth0/angular-jwt": "npm:^5.2.0"
     "@eslint/js": "npm:^9.29.0"
+    "@ngrx/signals": "npm:^20.0.0-rc.0"
     "@schuchard/prettier": "npm:5.1.0"
+    "@types/chokidar": "npm:^2.1.7"
     "@types/jasmine": "npm:~5.1.0"
+    "@typescript-eslint/types": "npm:^8.0.0"
+    "@typescript-eslint/utils": "npm:^8.0.0"
     "@vitest/coverage-v8": "npm:^3.2.4"
+    ag-grid-angular: "npm:^34.0.2"
+    ag-grid-community: "npm:^34.0.2"
     angular-eslint: "npm:20.1.1"
+    chokidar: "npm:^4.0.3"
     eslint: "npm:^9.29.0"
     husky: "npm:^9.1.7"
     jasmine-core: "npm:~5.6.0"

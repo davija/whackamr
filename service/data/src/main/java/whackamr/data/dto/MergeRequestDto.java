@@ -9,10 +9,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MergeRequestDto {
-	private int mergeRequestId;
-	private String link;
-	private UserDto owner;
-	private boolean active;
-	private Collection<MergeRequestDto> relatedRequests;
+public class MergeRequestDto
+{
+    private int mergeRequestId;
+    private String link;
+    private UserDto owner;
+    private boolean active;
+    private Collection<MergeRequestDto> relatedRequests;
+    private Collection<TagDto> tags;
 }

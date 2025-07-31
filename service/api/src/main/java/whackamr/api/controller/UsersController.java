@@ -1,5 +1,7 @@
 package whackamr.api.controller;
 
+import static whackamr.security.Permissions.ADD_ROLE;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
 import whackamr.NoSuchEntityException;
 import whackamr.data.dto.UserDto;
 import whackamr.data.dto.UserWithPasswordDto;
@@ -22,17 +26,12 @@ import whackamr.data.repository.RoleRepository;
 import whackamr.data.repository.UserPasswordRepository;
 import whackamr.data.repository.UserRepository;
 import whackamr.security.AuthorityAllowed;
-import whackamr.security.Permissions;
 import whackamr.security.password.PasswordManager;
-import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
 
 @Transactional
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/users")
-@AuthorityAllowed(Permissions.UPDATE_ROLE)
-@AuthorityAllowed(Permissions.ADD_ROLE)
 public class UsersController
 {
     private ModelMapper mapper;
@@ -42,8 +41,7 @@ public class UsersController
     private PasswordManager passwordManager;
 
     @GetMapping
-//    @RolesAllowed(Permissions.Fields.ADD_ROLE)
-//    @PreAuthorize("hasAuthority('ADD_ROLE')")    
+    @AuthorityAllowed(ADD_ROLE)
     public List<UserDto> getAllUsers()
     {
         var users = new ArrayList<UserDto>();
@@ -55,7 +53,7 @@ public class UsersController
     }
 
     @GetMapping("/{userId}")
-    public UserDto getUser(@PathVariable int userId)
+    public UserDto getUser(@PathVariable("userId") int userId)
     {
         var user = userRepository.findById(userId);
 
@@ -83,7 +81,7 @@ public class UsersController
 
     @DeleteMapping("/{userId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteUser(@PathVariable int userId)
+    public void deleteUser(@PathVariable("userId") int userId)
     {
         var userContainer = userRepository.findById(userId);
 
@@ -103,7 +101,7 @@ public class UsersController
     }
 
     @PostMapping("/{userId}/roles/{roleId}")
-    public UserDto addRoleToUser(@PathVariable int userId, @PathVariable int roleId)
+    public UserDto addRoleToUser(@PathVariable("userId") int userId, @PathVariable("roleId") int roleId)
     {
         var roleContainer = roleRepository.findById(roleId);
         var userContainer = userRepository.findById(userId);
@@ -126,7 +124,7 @@ public class UsersController
     }
 
     @DeleteMapping("/{userId}/roles/{roleId}")
-    public UserDto removeRoleFromUser(@PathVariable int userId, @PathVariable int roleId)
+    public UserDto removeRoleFromUser(@PathVariable("userId") int userId, @PathVariable("roleId") int roleId)
     {
         var roleContainer = roleRepository.findById(roleId);
         var userContainer = userRepository.findById(userId);

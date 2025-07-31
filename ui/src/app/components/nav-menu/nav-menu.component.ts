@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
-import { MenuLink } from '../../model/app.model';
+import { MenuLink } from '../../models/app.model';
 
 @Component({
   selector: 'app-nav-menu',

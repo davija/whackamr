@@ -4,6 +4,15 @@
   justify-self: center;
 }
 
+.login-error {
+  color: red;
+  margin-bottom: 16px;
+  padding-left: 32px;
+  padding-right: 32px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
 .mat-mdc-card-header {
   margin-bottom: 16px;
 }

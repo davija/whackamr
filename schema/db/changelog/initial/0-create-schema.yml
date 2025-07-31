@@ -273,6 +273,12 @@ databaseChangeLog:
                   nullable: false
                   primaryKey: true
             - column:
+                name: issue_number
+                type: VARCHAR(100)
+            - column:
+                name: description
+                type: VARCHAR(250)
+            - column:
                 name: link
                 type: VARCHAR(500)
                 constraints:
@@ -323,4 +329,43 @@ databaseChangeLog:
           baseColumnNames: related_merge_request_id
           referencedTableName: merge_request
           referencedColumnNames: merge_request_id
-              
+
+      - createTable:
+          tableName: tag
+          columns:
+            - column:
+                name: tag_id
+                type: INT
+                constraints:
+                    nullable: false
+                    primaryKey: true
+            - column:
+                name: tag
+                type: VARCHAR(100)
+                constraints:
+                    nullable: false
+    
+      - addUniqueConstraint:
+          constraintName: ux_tag_tag
+          tableName: tag
+          columnNames: tag
+
+      - createTable:
+          tableName: merge_request_tag
+          columns:
+            - column:
+                - name: tag_id
+                - type: INT
+                - constraints:
+                    nullable: false
+            - column:
+                - name: merge_request_id
+                - type: INT
+                - constraints:
+                    nullable: false
+      - addPrimaryKey:
+          constraintName: pk_merge_request_tag
+          tableName: merge_request_tag
+          columnNames: merge_request_id, tag_id
+          validate: true
+            
